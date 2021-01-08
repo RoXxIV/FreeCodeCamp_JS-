@@ -1,0 +1,50 @@
+/*Rosetta Code: ABC Problem
+
+You are given a collection of ABC blocks (e.g., childhood alphabet blocks). There are 20 blocks with two letters on each block. A complete alphabet is guaranteed amongst all sides of the blocks. The sample collection of blocks:
+
+
+Implement a function that takes a string (word) and determines whether the word can be spelled with the given collection of blocks.
+
+Some rules to keep in mind:
+
+    Once a letter on a block is used, that block cannot be used again.
+    The function should be case-insensitive.
+
+*/
+function canMakeWord(word) {
+   const lettersArr = [
+        ['B', 'O'],['X', 'K'],['D', 'Q'],['C', 'P'],['N', 'A'],['G', 'T'],['R', 'E'],['T', 'G'],['Q', 'D'],['F', 'S'],['J', 'W'],['H', 'U'],['V', 'I'],['A', 'N'],['O', 'B'],['E', 'R'],['F', 'S'],['L', 'Y'],['P', 'C'],['Z', 'M']
+        ];
+    //passe le mot en MAJ + convertion en tableau;
+    word = word.toUpperCase().split("")
+    //variable qui sera incrementé quand une correspondance est trouvé
+    let compareResult = 0;
+
+    console.log(word)
+
+    //boucle sur le mot
+    for(let letter = 0; letter < word.length; letter ++){
+        //boucle sur la liste
+        for(let i = 0; i < lettersArr.length; i++){
+            //cherche correspondance
+            if(lettersArr[i].indexOf(word[letter]) >= 0){
+                /* si corespondance trouvé on supprime 
+                celle ci puis on incremente compareResult*/
+                lettersArr.splice(i,1)
+                compareResult++
+                break;
+            }
+        }
+        
+    }
+    console.log(compareResult)
+
+//condition resultat
+    if(compareResult == word.length){
+        return true
+    }else{
+        return false
+    }
+
+    
+}
