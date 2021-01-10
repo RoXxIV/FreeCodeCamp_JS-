@@ -14,3 +14,22 @@ function convertHTML(str) {
 }
 
 convertHTML("Dolce & Gabbana");
+
+ou 
+
+function convertHTML(str) {
+  const char = ['&', '<', '>', "'", '"'];
+  const entities = ['&amp;','&lt;', '&gt;', '&apos;', '&quot;'];
+  
+  str = str.split("");
+
+  for (let i = 0; i < str.length; i++){
+    if (char.indexOf(str[i]) >= 0){
+      str[i] = entities[char.indexOf(str[i])]
+    }
+  }
+
+  return str = str.join("");
+}
+
+convertHTML("Dolce & Gabbana");
