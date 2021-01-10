@@ -1,3 +1,3 @@
 # FreeCodeCamp_JS
-apprentissage javascript
+apprentissage javascript, 
 mes solutions pour chaque exercises d'algo
